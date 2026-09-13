@@ -1,0 +1,8 @@
+# https://pypi.org/project/toml-rs
+#
+# toml_rs-<version>-cp313-cp313-pyemscripten_2025_0_wasm32.whl
+# toml_rs-<version>-cp314-cp314-pyemscripten_2026_0_wasm32.whl
+toml_rs_version = "0.4.1"
+
+# https://github.com/pyodide/pyodide
+pyodide_version = "314.0.2"

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (() => {
+        const THEMES =
+          "vscode-light-modern vscode-dark-modern light dark light-soft dark-soft midnight solar forest rose latte frappe macchiato mocha dawn rose-pine moon tokyo-day tokyo-night tokyo-storm nord dracula gruvbox-light gruvbox-dark".split(
+            " ",
+          );
+        const DEFAULT_THEME = { light: "vscode-light-modern", dark: "vscode-dark-modern" };
+        const schemeOf = (mode) =>
+          mode === "auto"
+            ? matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
+            : mode;
+
+        let stored = null;
+        try {
+          stored = JSON.parse(localStorage.getItem("toml-rs-theme-bootstrap") || "null");
+        } catch {}
+
+        const known =
+          stored &&
+          (stored.mode === "auto" || stored.mode === "light" || stored.mode === "dark") &&
+          THEMES.includes(stored.theme)
+            ? stored
+            : null;
+        const mode = known ? known.mode : "auto";
+        const resolved = schemeOf(mode);
+        const theme = mode === "auto" ? DEFAULT_THEME[resolved] : known.theme;
+
+        const root = document.documentElement;
+        root.classList.add(resolved);
+        root.dataset.theme = theme;
+        root.style.colorScheme = resolved;
+      })();
+    </script>
+    <meta
+      name="description"
+      content="toml-rs online playground built with Vue, TypeScript, Vite and Bun."
+    />
+    <title>toml-rs playground</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

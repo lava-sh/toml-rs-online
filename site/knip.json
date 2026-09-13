@@ -1,0 +1,6 @@
+{
+  "$schema": "./node_modules/knip/schema.json",
+  "entry": ["index.html", "tests/**/*.spec.ts"],
+  "project": ["src/**/*.{ts,vue}", "scripts/**/*.ts", "tests/**/*.ts"],
+  "ignoreDependencies": ["@fontsource/*"]
+}
