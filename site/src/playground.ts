@@ -89,7 +89,6 @@ ip = "10.0.0.2"
 role = "backend"
 `;
 
-const SPLIT_KEY = "toml-rs-split-v2";
 const DEFAULT_SPLIT_RATIO = 50;
 const MIN_SPLIT_RATIO = 28;
 const MAX_SPLIT_RATIO = 72;
@@ -205,15 +204,6 @@ function applySplitRatio(rawRatio: number): void {
     MOBILE_QUERY.matches ? "--top-height" : "--left-width",
     `${splitRatio}%`,
   );
-}
-
-function persistSplitRatio(): void {
-  localStorage.setItem(SPLIT_KEY, String(splitRatio));
-}
-
-function restoreSplitRatio(): void {
-  const saved = Number(localStorage.getItem(SPLIT_KEY));
-  applySplitRatio(Number.isFinite(saved) ? saved : DEFAULT_SPLIT_RATIO);
 }
 
 function assertNeverWorkerResponse(response: never): never {
@@ -440,13 +430,12 @@ export function usePlayground(
       return;
     }
     dragging = false;
-    persistSplitRatio();
     document.body.classList.remove("is-resizing");
     document.body.style.userSelect = "";
   }
 
   function onResize(): void {
-    restoreSplitRatio();
+    applySplitRatio(splitRatio);
   }
 
   function scheduleRender(): void {
@@ -467,7 +456,7 @@ export function usePlayground(
         scheduleRender();
       });
     }
-    restoreSplitRatio();
+    applySplitRatio(DEFAULT_SPLIT_RATIO);
     const sharedToml = readSharedToml();
     if (sharedToml !== null) {
       editorHandle?.setValue(sharedToml);

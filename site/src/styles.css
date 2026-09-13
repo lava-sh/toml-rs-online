@@ -1227,7 +1227,7 @@ button {
   border-right: 1px solid color-mix(in srgb, currentColor 20%, transparent);
   text-align: right;
   counter-reset: line;
-  margin-right: 0.75em;
+  margin-right: 0.45em;
   padding-right: 0.75em;
   opacity: 0.85;
 }
