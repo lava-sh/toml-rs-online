@@ -5,4 +5,4 @@
 toml_rs_version = "0.4.1"
 
 # https://github.com/pyodide/pyodide
-pyodide_version = "314.0.2"
+pyodide_version = "314.0.6"
