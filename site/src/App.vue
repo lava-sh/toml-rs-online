@@ -82,10 +82,17 @@ const visibleThemes = computed(() =>
   <main class="page-shell">
     <header class="topbar">
       <div class="topbar-main">
-        <div class="brand-block">
+        <a
+          class="brand-block"
+          href="https://pypi.org/project/toml-rs"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="toml-rs on PyPI"
+          title="toml-rs on PyPI"
+        >
           <img class="brand-logo brand-logo-dark" :src="logoDark" alt="toml-rs" />
           <img class="brand-logo brand-logo-light" :src="logoLight" alt="toml-rs" />
-        </div>
+        </a>
       </div>
       <div class="topbar-side">
         <a
