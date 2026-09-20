@@ -21,18 +21,19 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: "Setup Bun"
-        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - name: "Setup Deno"
+        uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2.0.5
         with:
-          bun-version: latest
+          deno-version: "latest"
+          cache: true
 
       - name: "Install site dependencies"
         working-directory: site
-        run: bun install
+        run: deno install --frozen
 
       - name: "Build site"
         working-directory: site
-        run: bun run build
+        run: deno task build
 
       - name: "Upload Pages artifact"
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
