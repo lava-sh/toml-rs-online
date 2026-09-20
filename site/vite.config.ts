@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from "node:url";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
-import checker from "vite-plugin-checker";
+import { checker } from "vite-plugin-checker";
 
 const page = (name: string): string => fileURLToPath(new URL(`./${name}`, import.meta.url));
 
