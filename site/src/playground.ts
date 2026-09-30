@@ -206,6 +206,10 @@ function applySplitRatio(rawRatio: number): void {
   );
 }
 
+function onResize(): void {
+  applySplitRatio(splitRatio);
+}
+
 function assertNeverWorkerResponse(response: never): never {
   throw new Error(`Unhandled worker response: ${String(response)}`);
 }
@@ -432,10 +436,6 @@ export function usePlayground(
     dragging = false;
     document.body.classList.remove("is-resizing");
     document.body.style.userSelect = "";
-  }
-
-  function onResize(): void {
-    applySplitRatio(splitRatio);
   }
 
   function scheduleRender(): void {
