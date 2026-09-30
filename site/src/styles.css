@@ -817,11 +817,25 @@ button {
   color: var(--text);
 }
 
+.glyph {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.glyph svg {
+  display: block;
+}
+
 .github-mark {
   display: block;
   width: 14px;
   height: 14px;
-  fill: var(--brand-mark);
+  color: var(--brand-mark);
+}
+
+.github-mark svg {
+  width: 100%;
+  height: 100%;
 }
 
 .copy-btn,
@@ -862,16 +876,12 @@ button {
   display: block;
   width: 18px;
   height: 18px;
-  fill: none;
-  stroke: currentcolor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
-.share-icon {
-  fill: currentcolor;
-  stroke: none;
+.copy-icon svg,
+.share-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .copy-btn .copy-done,
@@ -942,10 +952,14 @@ button {
 }
 
 .theme-btn-icon {
+  display: block;
   width: 19px;
   height: 19px;
-  fill: none;
-  stroke: currentColor;
+}
+
+.theme-btn-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .theme-btn:hover,
@@ -1065,6 +1079,11 @@ button {
   color: var(--muted);
   transform: rotate(-90deg);
   flex: 0 0 auto;
+}
+
+.theme-menu-chevron svg {
+  width: 100%;
+  height: 100%;
 }
 
 .theme-menu-preset:hover {

@@ -8,12 +8,12 @@ import ShareButton from "./components/buttons/ShareButton.vue";
 import Glyph from "./components/Glyph.vue";
 import type { TomlEditorFactory } from "./editors/types";
 import {
-  CHEVRON_PATH,
+  CHEVRON_ICON,
   GITHUB_MARK,
   MODE_ICONS,
-  RESET_PATHS,
+  RESET_ICON,
   SCHEME_ICONS,
-  THEME_PATHS,
+  THEME_ICON,
 } from "./icons";
 import { usePlayground } from "./playground";
 import { THEMES, type ThemeMode } from "./theme";
@@ -104,7 +104,7 @@ const visibleThemes = computed(() =>
           title="lava-sh/toml-rs"
         >
           <span class="github-tile" aria-hidden="true">
-            <Glyph class="github-mark" :paths="[GITHUB_MARK]" box="0 0 24 24" />
+            <Glyph class="github-mark" :svg="GITHUB_MARK" />
           </span>
           <span v-if="repoStars" class="repo-stats">
             <span class="repo-stat">
@@ -124,14 +124,7 @@ const visibleThemes = computed(() =>
             :title="themeButtonLabel"
             @click="toggleThemeMenu"
           >
-            <Glyph
-              class="theme-btn-icon"
-              :paths="THEME_PATHS"
-              box="0 0 24 24"
-              :size="19"
-              stroke
-              :stroke-width="1.8"
-            />
+            <Glyph class="theme-btn-icon" :svg="THEME_ICON" />
           </button>
           <div v-if="themeMenuOpen" class="theme-menu" role="menu" aria-label="Theme settings">
             <div class="theme-menu-group" role="group" aria-label="Appearance">
@@ -145,7 +138,7 @@ const visibleThemes = computed(() =>
                 :aria-checked="themeMode === option.value"
                 @click="setThemeMode(option.value)"
               >
-                <Glyph :paths="MODE_ICONS[option.value]" />
+                <Glyph :svg="MODE_ICONS[option.value]" />
                 <span>{{ option.label }}</span>
               </button>
             </div>
@@ -160,9 +153,9 @@ const visibleThemes = computed(() =>
                 :aria-checked="themeId === theme.id"
                 @click="setTheme(theme.id)"
               >
-                <Glyph :paths="SCHEME_ICONS[theme.scheme]" />
+                <Glyph :svg="SCHEME_ICONS[theme.scheme]" />
                 <span class="theme-menu-preset-name">{{ theme.label }}</span>
-                <Glyph class="theme-menu-chevron" :paths="[CHEVRON_PATH]" box="0 0 10 16" />
+                <Glyph class="theme-menu-chevron" :svg="CHEVRON_ICON" />
               </button>
             </div>
             <button
@@ -171,7 +164,7 @@ const visibleThemes = computed(() =>
               role="menuitem"
               @click="resetTheme"
             >
-              <Glyph :paths="RESET_PATHS" />
+              <Glyph :svg="RESET_ICON" />
               <span class="theme-menu-preset-name">Reset to default themes</span>
             </button>
           </div>
