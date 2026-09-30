@@ -942,9 +942,10 @@ button {
 }
 
 .theme-btn-icon {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
 }
 
 .theme-btn:hover,

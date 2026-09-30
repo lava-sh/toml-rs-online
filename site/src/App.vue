@@ -9,11 +9,11 @@ import Glyph from "./components/Glyph.vue";
 import type { TomlEditorFactory } from "./editors/types";
 import {
   CHEVRON_PATH,
-  CONTRAST_PATHS,
   GITHUB_MARK,
   MODE_ICONS,
   RESET_PATHS,
   SCHEME_ICONS,
+  THEME_PATHS,
 } from "./icons";
 import { usePlayground } from "./playground";
 import { THEMES, type ThemeMode } from "./theme";
@@ -124,7 +124,14 @@ const visibleThemes = computed(() =>
             :title="themeButtonLabel"
             @click="toggleThemeMenu"
           >
-            <Glyph class="theme-btn-icon" :paths="CONTRAST_PATHS" />
+            <Glyph
+              class="theme-btn-icon"
+              :paths="THEME_PATHS"
+              box="0 0 24 24"
+              :size="19"
+              stroke
+              :stroke-width="1.8"
+            />
           </button>
           <div v-if="themeMenuOpen" class="theme-menu" role="menu" aria-label="Theme settings">
             <div class="theme-menu-group" role="group" aria-label="Appearance">
